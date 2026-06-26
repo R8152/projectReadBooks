@@ -1,0 +1,62 @@
+const btnLogin = document.getElementById("btn-login")
+const btnCadastro = document.getElementById("btn-cadastro")
+const formLogin = document.getElementById("form-login")
+const formCadastro = document.getElementById("form-cadastro")
+
+const usuarios = [
+    {
+        id: 1,
+        nome: "Raul Teles",
+        email: "raulteles05@gmail.com",
+        senha: "2468"
+    },
+    {
+        id: 2,
+        nome: "Rayanne Carvalho",
+        email: "raycarvalho29@gmail.com",
+        senha: "5713"
+    },
+    {
+        id: 3,
+        nome: "Candido Oliveira",
+        email: "candoli75@gmail.com",
+        senha: "2468"
+    }
+]
+
+btnCadastro.addEventListener("click", () =>{
+    btnLogin.classList.remove("bg-[#006970]", "text-white")
+    btnCadastro.classList.add("bg-[#006970]", "text-white")
+    formCadastro.classList.remove("hidden")
+    formLogin.classList.add("hidden")
+})
+btnLogin.addEventListener("click", () => {
+    btnCadastro.classList.remove("bg-[#006970]", "text-white")
+    btnLogin.classList.add("bg-[#006970]", "text-white")
+    formLogin.classList.remove("hidden")
+    formCadastro.classList.add("hidden")
+})
+
+function handleLogin(event){
+    event.preventDefault()
+    const emailLogin = document.getElementById("emailLogin").value
+    const senhaLogin = document.getElementById("senhaLogin").value
+    console.log(emailLogin, senhaLogin)
+    const usuario = usuarios.find((usuario) => {
+        emailLogin === usuario.email && senhaLogin === usuario.senha
+    })
+    if (usuario) {
+        window.location.href = "./dashboard.html"
+    } else {
+        const alerta = document.createElement("p");
+        alerta.textContent = "Email ou senha incorretos"
+        alerta.classList.add("text-red-500")
+        divSenha.appendChild(alerta)
+    }
+}
+function handleCadastro(event){
+    event.preventDefault()
+    const nomeCadastro = document.getElementById("nome").value
+    const emailCadastro = document.getElementById("emailCadastro").value
+    const senhaCadastro = document.getElementById("senhaCadastro").value
+}

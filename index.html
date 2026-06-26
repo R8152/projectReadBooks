@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>ReadBooks</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="h-screen">
+    <main class="h-screen flex">
+        <div class="relative w-1/2 bg-[url('./Livraria.webp')]">
+            <div class="absolute w-full bg-linear-to-b from-[#ffffff5f] to-white h-screen"></div>
+            <h1 class="absolute p-5 py-15 text-7xl text-[#006970] font-bold">ReadBooks</h1>
+        </div>
+        <div class="flex flex-col items-center pt-20 w-1/2">
+            <div class="bg-[#E7E8E9] w-[48%] p-1 rounded-md">
+                <button id="btn-login" class="bg-[#006970] text-white px-15 py-2 rounded-lg">Login</button>
+                <button id="btn-cadastro" class="px-15 py-2 rounded-lg">Criar conta</button>
+            </div>
+            <h2 class="text-2xl pt-3">Iniciar sessão</h2>
+            <p>Insira seus dados para acessar sua estante</p>
+            <form onsubmit="handleLogin(event)" id="form-login" class="py-5">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="email@readbooks.com" class="w-full border border-[#d9d9db] p-2 rounded-md">
+                </div>
+                <div>
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="......." class="w-full border border-[#d9d9db] p-2 rounded-md">
+                </div>
+                <div>
+                    <div>
+                        <input type="checkbox">
+                        <label for="">Mantenha-me logado</label>
+                    </div>
+                    <a href="">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="w-full bg-[#006970] p-x-15 py-2 rounded-lg text-white mt-5">Entrar</button>
+            </form>
+            <form onsubmit="handleCadastro(event)" id="form-cadastro" class="py-5">
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" class="w-full border border-[#d9d9db] rounded-md p-2">
+                </div>
+                <div>
+                    <label for="senha">Email</label>
+                    <input type="email" name="emailCadastro" id="emailCadastro" class="w-full border border-[#d9d9db] rounded-md p-2">
+                </div>
+                <div>
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senhaCadastro" id="senhaCadastro" class="w-full border border-[#d9d9db] rounded-md p-2">
+                </div>
+                <a href="">Esqueceu a senha?</a>
+                <button>Entrar</button>
+            </form>
+            <p> &copy; Todos os direitos reservados. 2026</p>
+        </div>
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>
