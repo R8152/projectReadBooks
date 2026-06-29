@@ -2,6 +2,7 @@ const btnLogin = document.getElementById("btn-login")
 const btnCadastro = document.getElementById("btn-cadastro")
 const formLogin = document.getElementById("form-login")
 const formCadastro = document.getElementById("form-cadastro")
+const divSenha = document.getElementById("div-senha")
 
 const usuarios = [
     {
@@ -41,7 +42,6 @@ function handleLogin(event){
     event.preventDefault()
     const emailLogin = document.getElementById("emailLogin").value
     const senhaLogin = document.getElementById("senhaLogin").value
-    console.log(emailLogin, senhaLogin)
     const usuario = usuarios.find((usuario) => {
         emailLogin === usuario.email && senhaLogin === usuario.senha
     })
