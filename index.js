@@ -4,26 +4,6 @@ const formLogin = document.getElementById("form-login")
 const formCadastro = document.getElementById("form-cadastro")
 const divSenha = document.getElementById("div-senha")
 
-const usuarios = [
-    {
-        id: 1,
-        nome: "Raul Teles",
-        email: "raulteles05@gmail.com",
-        senha: "2468"
-    },
-    {
-        id: 2,
-        nome: "Rayanne Carvalho",
-        email: "raycarvalho29@gmail.com",
-        senha: "5713"
-    },
-    {
-        id: 3,
-        nome: "Candido Oliveira",
-        email: "candoli75@gmail.com",
-        senha: "2468"
-    }
-]
 
 btnCadastro.addEventListener("click", () =>{
     btnLogin.classList.remove("bg-[#006970]", "text-white")
@@ -42,17 +22,25 @@ function handleLogin(event){
     event.preventDefault()
     const emailLogin = document.getElementById("emailLogin").value
     const senhaLogin = document.getElementById("senhaLogin").value
-    const usuario = usuarios.find((usuario) => {
+    fetch("http://localhost:3000/usuarios")
+    .then(res => res.json())
+    .then(dados => {
+        const usuarios = dados
+        console.log(dados)
+        const usuario = usuarios.find((usuario) => {
         emailLogin === usuario.email && senhaLogin === usuario.senha
     })
     if (usuario) {
         window.location.href = "./dashboard.html"
     } else {
+        divSenha.removeChild(divSenha.lastChild)
         const alerta = document.createElement("p");
         alerta.textContent = "Email ou senha incorretos"
         alerta.classList.add("text-red-500")
         divSenha.appendChild(alerta)
-    }
+    }    
+    })
+    .catch(error => console.error(error.message))
 }
 function handleCadastro(event){
     event.preventDefault()
