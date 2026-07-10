@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>ReadBooks</title>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -13,7 +14,10 @@
             <div class="absolute w-full bg-linear-to-b from-[#ffffff5f] to-white h-screen"></div>
             <h1 class="absolute p-5 py-15 text-7xl text-[#006970] font-bold">ReadBooks</h1>
         </div>
-        <div class="flex flex-col items-center pt-20 w-1/2">
+        <span id="span-loading" class=" hidden absolute right-90 bottom-100 animate__animated animate__rotateOut animate__infinite">
+            <i class="fa-solid fa-spinner text-4xl"></i>
+        </span>
+        <div id="div-login" class="flex flex-col items-center pt-20 w-1/2">
             <div class="bg-[#E7E8E9] w-[48%] p-1 rounded-md">
                 <button id="btn-login" class="bg-[#006970] text-white px-15 py-2 rounded-lg">Login</button>
                 <button id="btn-cadastro" class="px-15 py-2 rounded-lg">Criar conta</button>
@@ -45,18 +49,19 @@
                     <input type="text" name="nome" id="nome" class="w-full border border-[#d9d9db] rounded-md p-2">
                 </div>
                 <div>
-                    <label for="senha">Email</label>
+                    <label for="email">Email</label>
                     <input type="email" name="emailCadastro" id="emailCadastro" class="w-full border border-[#d9d9db] rounded-md p-2">
                 </div>
-                <div>
+                <div id="div-senha">
                     <label for="senha">Senha</label>
                     <input type="password" name="senhaCadastro" id="senhaCadastro" class="w-full border border-[#d9d9db] rounded-md p-2">
                 </div>
                 <a href="">Esqueceu a senha?</a>
-                <button>Entrar</button>
+                <button type="submit">Entrar</button>
             </form>
             <p> &copy; Todos os direitos reservados. 2026</p>
         </div>
+        <div id="div-alert" class="absolute hidden bg-amber-200 py-8 px-5 rounded-2xl bottom-0 right-10 border-3 border-amber-400"></div>
     </main>
     <script src="./index.js"></script>
 </body>

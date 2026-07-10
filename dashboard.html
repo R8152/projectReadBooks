@@ -15,16 +15,11 @@
             <input class="w-full p-2" type="text" name="busca" id="busca-input" placeholder="Busca por livro, autor...">
             <button type="submit" class="pr-2"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-        <span></span>
+        <button type="button" onclick="handleLogout()" class="text-[#006970] font-bold mr-5">Sair <i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000;"></i></button>
     </header>
     <main>
-        <section id="resultado-pesquisa">
-            <div>
-                <img src="" alt="">
-                <h2>${book.title}</h2>
-                <h3>${book.author_name[0]}</h3>
-                <button>+</button>
-            </div></section>
+        <section id="resultado-pesquisa" class="grid md:grid-cols-4 gap-10 m-20 justify-items-center">
+        </section>
         <section>
             <h1>Meta de Leitura</h1>
             <div></div>
