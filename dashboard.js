@@ -29,7 +29,7 @@ function getBooks(event){
                 <img src="${capa}" alt="${book.title}" class="w-50 h-59 object-cover rounded-lg mb-4">
                 <h2 class="text-lg font-bold text-gray-800 line-clamp-2">${book.title}</h2>
                 <h3 class="text-sm text-gray-500 mt-2 mb-4">${book.author_name[0]}</h3>
-                <button class="bg-blue-600 hover:bg-blue-800 text-white text-xl font-bold w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">+</button>
+                <button type="button" onclick="adicionarMeta('${book.title}', '${capa}')" class="bg-blue-600 hover:bg-blue-800 text-white text-xl font-bold w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">+</button>
             </div>
                 `    
     })
@@ -39,11 +39,15 @@ function getBooks(event){
 }
 function handleLogout () {
     localStorage.clear() //Limpa todo o armazenamento local do site
+    localStorage.removeItem("usuarioLogado")
     window.location.href = "./index.html"
 }
 function adicionarMeta(){
     divMeta.innerHTML += `
-    <img src="${capa}" alt="${book.title}" class="w-50 h-59 object-cover rounded-lg mb-4">
+    <img src="${capa}" alt="${title}" class="w-50 h-59 object-cover rounded-lg mb-4">
     `
+}
+function removerMeta(){
+    divMeta.innerHTML -= `<img src="${capa} alt="${title}" class="w-50 h-59 object-cover rounded-lg mb-4">`
 }
 //Fazer um botão de remover uma meta e analisar outras coisas que estão faltando no meu repositório
